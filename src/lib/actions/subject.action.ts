@@ -1,7 +1,8 @@
 import mongoose from "mongoose";
 import Subject from "../database/subject.model";
+import { handleError } from "../utils";
 
-export default async function connectDB() {
+export async function connectDB() {
   try {
     const mongoUrl = process.env.MONGODB_URL;
     if (!mongoUrl) {
@@ -56,8 +57,23 @@ async function insertSubjects() {
   }
 }
   
-(async function () {
-  await connectDB();
-  await insertSubjects();
-  mongoose.connection.close();
-})();
+// (async function () {
+//   await connectDB();
+//   await insertSubjects();
+//   mongoose.connection.close();
+// })();
+
+
+export async function getSubjects({ year, sem }: { year: number, sem: number }) {
+  try {
+    await connectDB();
+    const subjects = await Subject.find({ year }).where("sem").equals(sem);
+    console.log("Subjects fetched successfully!", subjects.length);
+    return subjects; 
+  } catch (error) {
+    console.error("Error fetching subjects:", error);
+    throw new Error("Failed to fetch subjects");
+  } finally {
+    mongoose.connection.close();
+  }
+}
