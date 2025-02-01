@@ -8,5 +8,5 @@ const subjectSchema = new Schema({
   image: { type: String }, // Optional field for image URLs
 });
 
-const Subject = model("Subject", subjectSchema);
+const Subject =mongoose.models.Subject||mongoose.model("Subject", subjectSchema);
 export default Subject;

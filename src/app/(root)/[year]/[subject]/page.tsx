@@ -1,9 +1,13 @@
+
 import React from 'react'
 
-const page = () => {
+const page = async ({params}:{params:Promise<{subject:string}>}) => {
+    const { subject}=await params;
+    console.log( subject);
   return (
     <div>
        subjects
+       {subject}
     </div>
   )
 }

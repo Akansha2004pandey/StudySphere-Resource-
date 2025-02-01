@@ -2,17 +2,26 @@ import mongoose from "mongoose";
 import Subject from "../database/subject.model";
 import { handleError } from "../utils";
 
-export async function connectDB() {
-  try {
-    const mongoUrl = process.env.MONGODB_URL;
-    if (!mongoUrl) {
-      throw new Error("MONGODB_URL is not defined in the environment variables");
-    }
-    await mongoose.connect(mongoUrl);
-    console.log("Connected to MongoDB");
-  } catch (err) {
-    console.error("Error connecting to MongoDB", err);
-  }
+
+type ConnectionObject={
+  isConnected?:number;
+}
+const connection:ConnectionObject={}
+
+export async function connectDB():Promise<void> {
+  if(connection.isConnected){
+    console.log("already connected to database");
+    return ;
+}
+try{ 
+  const db=await mongoose.connect(process.env.MONGODB_URL || '',{})
+  connection.isConnected=db.connections[0].readyState
+  console.log("db connected successfully");
+}catch(err){
+    console.log("database connection failed",err);
+    process.exit(1);
+
+}
 }
 
 async function insertSubjects() {
@@ -64,16 +73,15 @@ async function insertSubjects() {
 // })();
 
 
-export async function getSubjects({ year, sem }: { year: number, sem: number }) {
+export async function getSubjects({ year, sem }: { year: number, sem: number }){
+  await connectDB();
   try {
-    await connectDB();
+    
     const subjects = await Subject.find({ year }).where("sem").equals(sem);
     console.log("Subjects fetched successfully!", subjects.length);
     return subjects; 
   } catch (error) {
     console.error("Error fetching subjects:", error);
     throw new Error("Failed to fetch subjects");
-  } finally {
-    mongoose.connection.close();
-  }
+  } 
 }
