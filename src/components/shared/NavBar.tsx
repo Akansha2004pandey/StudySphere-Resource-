@@ -8,7 +8,7 @@ import Image from "next/image";
 export function NavbarDemo() {
   return (
     <div className="relative w-full flex items-center justify-center">
-      <Navbar className="top-12" />
+      <Navbar className="top-6 z-50" />
     </div>
   );
 }
@@ -16,7 +16,7 @@ export function NavbarDemo() {
 function Navbar({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null);
   return (
-    <div className={cn("fixed top-10 inset-x-0 max-w-2xl mx-auto z-50", className)}>
+    <div className={cn("fixed inset-x-0 max-w-2xl mx-auto z-50", className)}>
       <Menu setActive={setActive}>
       <Image src="/favicon.ico" alt="logo" width={24} height={24}/>
       <Link href="/">

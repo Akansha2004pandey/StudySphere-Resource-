@@ -4,28 +4,7 @@ import { Boxes } from "../ui/background-boxes";
 import { cn } from "@/lib/utils";
 import { TypewriterEffectSmooth } from "../ui/typewriter-effect";
 import Image from "next/image";
-const words = [
-    {
-      text: "TRIED",
-      className: "text-blue-100 text-3xl z-10",
-    },
-    {
-      text: "AND",
-      className: "text-blue-100 text-3xl z-10",
-    },
-    {
-      text: "TESTED",
-      className: "text-blue-100 text-3xl z-10",
-    },
-    {
-      text: "BY",
-      className: "text-blue-100 text-3xl z-10",
-    },
-    {
-      text: "YOUR SENIORS",
-      className: "text-yellow-200 dark:text-yellow-200 text-3xl z-10",
-    },
-  ];
+import { words } from "@/constants";
 
 export function BackgroundBoxesDemo() {
   return (
@@ -43,7 +22,7 @@ export function BackgroundBoxesDemo() {
       <h1 className={cn("text-white relative text-5xl font-bold")}>
         Get curated study material <br/> for your semester exams! 
       </h1>
-      <TypewriterEffectSmooth words={words} />
+      <TypewriterEffectSmooth words={words} className="text-white"/>
     </div>
   );
 }

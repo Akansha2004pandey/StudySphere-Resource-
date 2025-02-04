@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
         hostname: 'assets.aceternity.com',
       },
     ],
-    domains: ['res.cloudinary.com', 'images.unsplash.com', 'png.pngtree.com'],
+    domains: ['res.cloudinary.com', 'images.unsplash.com', 'png.pngtree.com', 'img.freepik.com'],
   },
 };
 
