@@ -38,7 +38,7 @@ const page = () => {
             <ThreeDCard name="Sanskriti" description="NSUT CSE'26" imgSrc='https://images.unsplash.com/photo-1541516160071-4bb0c5af65ba?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGFraW5nJTIwcGhvdG98ZW58MHx8MHx8fDA%3D' linkedin='www.linkedin.com'/>
        </div>
        </div>
-       <div className="contributors bg-slate-900 p-4 flex flex-col items-center justify-center">
+       <div className="contributors bg-slate-900 p-6 flex flex-col items-center justify-center">
           <p className="text-center text-2xl text-green-200">Our contributors</p>
           <AnimatedTestimonials testimonials={testimonials} />
           <Footer />
