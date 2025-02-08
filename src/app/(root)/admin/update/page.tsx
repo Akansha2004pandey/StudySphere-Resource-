@@ -78,7 +78,7 @@ const UpdateForm = () => {
           render={({ field }) => (
             <FormItem>
               <FormLabel>Course Code</FormLabel>
-              <Select onValueChange={(value) => handleInputChange('coursecode', value)} defaultValue={material.coursecode}>
+              <Select onValueChange={(value: string) => handleInputChange('coursecode', value)} defaultValue={material.coursecode}>
                 <FormControl>
                   <SelectTrigger>
                     <SelectValue placeholder="Select a course code" />
@@ -121,7 +121,7 @@ const UpdateForm = () => {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Semester of course</FormLabel>
-                  <Select onValueChange={(value) => handleInputChange('sem', parseInt(value))} defaultValue={String(material.sem)}>
+                  <Select onValueChange={(value: string) => handleInputChange('sem', parseInt(value))} defaultValue={String(material.sem)}>
                     <FormControl>
                       <SelectTrigger>
                         <SelectValue placeholder="Select semester" />
@@ -147,7 +147,7 @@ const UpdateForm = () => {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Year</FormLabel>
-                  <Select onValueChange={(value) => handleInputChange('year', parseInt(value))} defaultValue={String(material.year)}>
+                  <Select onValueChange={(value: string) => handleInputChange('year', parseInt(value))} defaultValue={String(material.year)}>
                     <FormControl>
                       <SelectTrigger>
                         <SelectValue placeholder="Select year" />
@@ -173,7 +173,7 @@ const UpdateForm = () => {
           render={({ field }) => (
             <FormItem>
               <FormLabel>Material Type</FormLabel>
-              <Select onValueChange={(value) => handleInputChange('materialType', value)} defaultValue={material.materialType}>
+              <Select onValueChange={(value: string) => handleInputChange('materialType', value)} defaultValue={material.materialType}>
                 <FormControl>
                   <SelectTrigger>
                     <SelectValue placeholder="Select a material type" />
