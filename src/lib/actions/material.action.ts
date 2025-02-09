@@ -1,7 +1,9 @@
+"use server"
 import mongoose from "mongoose";
 import Material from "../database/material.model";
 import { connectDB } from "./subject.action";
 import { handleError } from "../utils";
+
 const insertTestDocument = async () => {
     try {
         const testMaterial = new Material({

@@ -7,5 +7,5 @@ export async function POST(request: Request) {
     }catch(err){
         return NextResponse.json({message:"Error inserting admin",status:500});
     }
-     
+
 }

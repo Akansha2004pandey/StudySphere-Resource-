@@ -7,8 +7,10 @@ import { useRouter } from 'next/navigation'
 import Footer from '@/components/shared/Footer'
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 import { testimonials } from "@/constants/index";
-const page = () => {
+
+const page =async () => {
   const router=useRouter()
+  
   return (
     <>
        <BackgroundBoxesDemo />
