@@ -3,7 +3,9 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { Button } from "@/components/ui/button";
+import { signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { useToast } from "@/hooks/use-toast";
 import {
   Form,
   FormControl,
@@ -34,6 +36,7 @@ const formSchema = z.object({
 });
 
 const UpdateForm = () => {
+  const { toast } = useToast();
   const [material, setMaterial] = useState(defaultValues);
   const [isSubmitting, setisSubmitting] = useState(false);
   const form = useForm<z.infer<typeof formSchema>>({
@@ -62,16 +65,45 @@ const UpdateForm = () => {
     try {
       console.log("State variable material: ",material); 
       await updateMaterial(material);
+      toast({
+        title: 'Success',
+        description: "Successfully updated material",
+        variant: 'default',
+      });
     } catch (error) {
+      toast({
+        title: 'Error',
+        description: "Error submitting the form",
+        variant: 'destructive',
+      });
       console.log(error);
     }
     setisSubmitting(false);
   }
-
+  const router = useRouter();
   return (
+    <>
+    <div className="w-3/5 flex justify-evenly m-auto pt-2">
+      <button 
+        className="customButton" type="button" onClick={() => router.push("/")}
+      >
+        Home
+      </button>
+      <button 
+        className="customButton" type="button" onClick={() => router.back()}
+        >
+        Go Back
+      </button>
+      <button
+        className="customButton"
+        onClick={() => signOut()}
+      >
+        Sign Out
+      </button>
+    </div>
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 mt-32 mb-1 ml-12">
-        <h1 className="text-bold text-2xl">Update material details</h1>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="bg-gray-200 p-6 space-y-8 m-auto w-3/5 my-4 rounded-lg">
+        <h1 className="text-bold text-2xl ">Update material details</h1>
         <FormField
           control={form.control}
           name="coursecode"
@@ -208,11 +240,12 @@ const UpdateForm = () => {
             </FormItem>
           )}
         />
-        <Button type="submit" disabled={isSubmitting}>
+        <button className="customButton" type="submit" disabled={isSubmitting}>
           {isSubmitting ? 'Submitting...' : 'Save material'}
-        </Button>
+        </button>
       </form>
     </Form>
+    </>
   );
 };
 

@@ -82,6 +82,6 @@ export async function updateMaterial({
     console.log("document updated successfully");
   } catch (err) {
     console.error("Error in updateMaterial:", err);
-    handleError(err)
+    handleError(err);
   }
 }
