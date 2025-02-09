@@ -15,5 +15,22 @@ declare type SubjectProps = {
     subjectCode: string;
     subjName: string;
     image: string | "/srcImg"; // Optional field for image URLs
-  };
-  
+};
+
+declare type MaterialType = "drive" | "ytPlaylist" | "notes" | "ppts" | "pyqs";
+
+declare type addDocumentParams = {
+    coursecode: string;
+    courseName: string;
+    year: number;
+    sem: number;
+}
+
+declare type updateMaterialParams = {
+    year: number;
+    sem: number;
+    coursecode: string;
+    coursename: string;
+    materialType: string;
+    material: string;
+};

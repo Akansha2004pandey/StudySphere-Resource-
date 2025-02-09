@@ -2,7 +2,7 @@ import User from "../database/user.model";
 import mongoose from "mongoose";
 import { handleError } from "../utils";
 import bcrypt from "bcryptjs";
-import { connectDB } from "./subject.action";
+import { connectDB } from "../database/connection";
 
 export const insertTestDocument = async () => {
     await connectDB();

@@ -4,6 +4,7 @@ import { HoveredLink, Menu, MenuItem } from "../ui/navbar-menu";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export function NavbarDemo() {
   return (
@@ -14,6 +15,7 @@ export function NavbarDemo() {
 }
 
 function Navbar({ className }: { className?: string }) {
+  const router = useRouter();
   const [active, setActive] = useState<string | null>(null);
   return (
     <div className={cn("fixed inset-x-0 max-w-2xl mx-auto z-50", className)}>
@@ -34,6 +36,7 @@ function Navbar({ className }: { className?: string }) {
         <Link href="/">
           <MenuItem setActive={setActive} active={active} item="About the devs"></MenuItem>
         </Link>
+        <button onClick={() => router.push("/admin")}>Admin Sign in</button>
       </Menu>
     </div>
   );
