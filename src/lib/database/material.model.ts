@@ -2,14 +2,14 @@ import mongoose, { Schema, Document } from "mongoose";
 
 interface IMaterial extends Document {
   year: number;
-  sem: number
+  sem: number;
   coursecode: string;
   coursename: string;
-  ytPlaylist: string[];
-  ebooks: string[];
-  notes: string[];
-  ppts: string[];
-  pyqs: string[];
+  ytPlaylist: Schema.Types.ObjectId[];
+  ebooks: Schema.Types.ObjectId[];
+  notes: Schema.Types.ObjectId[];
+  ppts: Schema.Types.ObjectId[];
+  pyqs: Schema.Types.ObjectId[];
 }
 
 const MaterialSchema: Schema<IMaterial> = new Schema({
@@ -17,11 +17,11 @@ const MaterialSchema: Schema<IMaterial> = new Schema({
   sem: { type: Number, required: true },
   coursecode: { type: String, required: true, unique: true },
   coursename: { type: String, required: true },
-  ytPlaylist: { type: [String], default: [] },
-  ebooks: { type: [String], default: [] },
-  notes: { type: [String], default: [] },
-  ppts: { type: [String], default: [] },
-  pyqs: { type: [String], default: [] },
+  ytPlaylist: [{ type: Schema.Types.ObjectId, ref: 'MaterialLink'}],
+  ebooks: [{ type: Schema.Types.ObjectId, ref: 'MaterialLink'}],
+  notes: [{ type: Schema.Types.ObjectId, ref: 'MaterialLink'}],
+  ppts: [{ type: Schema.Types.ObjectId, ref: 'MaterialLink'}],
+  pyqs: [{ type: Schema.Types.ObjectId, ref: 'MaterialLink'}],
 });
 
 const Material = mongoose.models.Material || mongoose.model<IMaterial>("Material", MaterialSchema);

@@ -32,5 +32,6 @@ declare type updateMaterialParams = {
     coursecode: string;
     coursename: string;
     materialType: string;
+    title: string;
     material: string;
 };
