@@ -32,6 +32,7 @@ const formSchema = z.object({
   sem: z.number().min(1).max(4),
   year: z.number().min(1).max(2),
   materialType: z.string(),
+  title: z.string(),
   material: z.string(),
 });
 
@@ -220,6 +221,23 @@ const UpdateForm = () => {
                 </SelectContent>
               </Select>
               <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="title"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Title of material you're posting</FormLabel>
+              <FormControl>
+                <Input
+                placeholder="Title goes here"
+                value={material.title}
+                onChange={(e) => handleInputChange('title', e.target.value)} 
+                />
+              </FormControl>
+              <FormMessage/>
             </FormItem>
           )}
         />

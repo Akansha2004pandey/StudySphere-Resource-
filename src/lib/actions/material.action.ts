@@ -3,28 +3,8 @@
 import Material from "@/lib/database/material.model";
 import { connectDB } from "../database/connection";
 import { handleError } from "../utils";
-
-const insertNewDocument = async ({coursecode, courseName, year, sem}: addDocumentParams) => {
-    try {
-        await connectDB();
-        const newMaterial = new Material({
-            year: year,
-            sem: sem,
-            coursecode: coursecode,
-            coursename: courseName,
-            ytPlaylist: [],
-            ebooks: [],
-            notes: [],
-            ppts: [],
-            pyqs: [],
-          });
-          const res = await newMaterial.save();
-          console.log(res);
-          return res;
-    } catch (error) {
-        console.log(error);
-    } 
-}
+import MaterialLink from "../database/materialLink.model";
+import mongoose from "mongoose";
 
 async function getMaterial({ subjCode }: { subjCode: string }) {
     try {
@@ -66,17 +46,35 @@ export async function updateMaterial({
     sem,
     year,
     materialType,
+    title,
     material,
   }: updateMaterialParams) {
   try {
     await connectDB();
     const existingDoc = await Material.findOne({ coursecode });
     if (!existingDoc) {
-      await Material.create({ coursecode, coursename, sem, year });
+      await Material.create({ 
+        coursecode, 
+        coursename, 
+        sem, 
+        year, 
+        ytPlaylist: [],
+        ebooks: [],
+        notes: [],
+        ppts: [],
+        pyqs: [], 
+       });
     }
+    const newMaterialLink = await MaterialLink.create({ 
+        _id: new mongoose.Types.ObjectId(),
+        type: materialType,
+        title: title,
+        link: material,
+    });
+    console.log("Id of new doc is: ", newMaterialLink._id);
     const res = await Material.findOneAndUpdate(
       { coursecode },
-      { $push: { [materialType]: material } },
+      { $push: { [materialType]: newMaterialLink._id } },
       { new: true, upsert: true } 
     );
     console.log("document updated successfully");
