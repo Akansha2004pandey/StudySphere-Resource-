@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
+import Loader from "@/components/ui/Loader";
 const AdminDelete = () => {
     const router = useRouter();
     const [data, setData] = useState(null); 
@@ -35,12 +36,7 @@ const AdminDelete = () => {
     if (loading) {
         
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-100">
-      <div className="flex items-center space-x-2">
-        <div className="w-16 h-16 border-4 border-t-4 border-gray-300 rounded-full animate-spin border-t-blue-500"></div>
-        
-      </div>
-    </div>
+    <Loader />
   );
 
     }

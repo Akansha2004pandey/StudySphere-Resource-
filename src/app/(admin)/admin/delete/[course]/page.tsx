@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { getDoc } from "@/lib/actions/delete.action";
 import DeleteCard from "@/components/ui/DeleteCard";
+import Loader from "@/components/ui/Loader";
 const Page = ({ params }: { params: Promise<{ course: string }> }) => {
   const [coursecode, setCoursecode] = useState<string>("");
   const [data, setData] = useState<any>(null);
@@ -47,12 +48,7 @@ const Page = ({ params }: { params: Promise<{ course: string }> }) => {
   }, [content, data]);
 
   if (loading) {
-    <div className="flex items-center justify-center h-screen bg-gray-100">
-    <div className="flex items-center space-x-2">
-      <div className="w-16 h-16 border-4 border-t-4 border-gray-300 rounded-full animate-spin border-t-blue-500"></div>
-      
-    </div>
-  </div>
+    <Loader/>
   }
 
   return (
