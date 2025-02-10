@@ -1,5 +1,5 @@
 import mongoose, { Schema, Document } from "mongoose";
-
+import MaterialLink from "./materialLink.model";
 interface IMaterial extends Document {
   year: number;
   sem: number;
