@@ -41,6 +41,9 @@ const Page = ({ params }: { params: Promise<{ course: string }> }) => {
         case "PYQS":
           setContentData(data.pyqs);
           break;
+        case "Ebooks":
+          setContentData(data.ebooks);
+          break;
         default:
           setContentData(null);
       }
@@ -87,6 +90,13 @@ const Page = ({ params }: { params: Promise<{ course: string }> }) => {
       
             >
               PYQS
+            </Button>
+            <Button
+              variant={content === "Ebooks" ? "custom" : "default"}
+              onClick={() => setContent("Ebooks")}
+      
+            >
+              Ebooks
             </Button>
           </div>
           {contentData && (
