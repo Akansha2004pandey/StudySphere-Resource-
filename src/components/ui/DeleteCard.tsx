@@ -2,20 +2,27 @@ import React from 'react'
 import { Button } from '@/components/ui/button'
 import { X } from 'lucide-react'
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from '@/components/ui/card'
+import { deleteMaterial } from '@/lib/actions/delete.action'
+import { useToast } from '@/hooks/use-toast'
 import { AlertDialog, AlertDialogContent, AlertDialogDescription,AlertDialogTrigger ,AlertDialogHeader, AlertDialogTitle, AlertDialogFooter, AlertDialogCancel, AlertDialogAction } from '@/components/ui/alert-dialog'
-const DeleteCard = ({coursename, coursecode, content, contentData}:{coursename:string,coursecode:string,content:string, contentData:string},) => {
+const DeleteCard = ({coursename, coursecode, content, contentData}:{coursename:string,coursecode:string,content:string, contentData:any},) => {
+    const {toast} = useToast();
     const handleDeleteConfirm = () => {
         console.log('Deleted')
+        const res=deleteMaterial(coursecode,content,contentData.id);
+        toast({title: 'Material Deleted',
+           variant: 'default'});
+        console.log(res); 
     }
     
   return (
     
        
-       <div>
+       <div className='my-2'>
         <Card>
        <CardHeader>
         <div className="flex justify-between items-center">
-          <CardTitle className='text-xl '>{contentData}</CardTitle>
+          <CardTitle className='text-xl '>{contentData.title}</CardTitle>
           <AlertDialog>
             <AlertDialogTrigger asChild>
               <Button variant='destructive'>
