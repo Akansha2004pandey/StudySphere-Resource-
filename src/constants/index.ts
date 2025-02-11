@@ -92,7 +92,7 @@ export const words = [
     { year: 2, sem: 4, subjectCode: "FEPD015", subjName: "Yoga", image: "" },
 ];
 
-export const materialTypes = ["drive", "ytPlaylist", "notes", "ppts", "pyqs"];
+export const materialTypes = ["ebooks", "ytPlaylist", "notes", "ppts", "pyqs"];
 export const years = [1, 2];
 export const semesters = [1, 2, 3, 4];
 export const coursecodes = subjects.map((subject) => subject.subjectCode);
