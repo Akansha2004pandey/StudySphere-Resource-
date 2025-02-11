@@ -66,7 +66,6 @@ export const words = [
     { year: 1, sem: 1, subjectCode: "FCME006", subjName: "Basics of Mechanical Engg.", image: "" },
     { year: 1, sem: 1, subjectCode: "FCMT001", subjName: "Mathematics-I", image: "" },
     { year: 1, sem: 1, subjectCode: "FCPH004", subjName: "Physics", image: "" },
-    { year: 1, sem: 1, subjectCode: "FENH010", subjName: "The Science of Happiness and Wellbeing", image: "" },
 
     // 1st Year, Sem 2
     { year: 1, sem: 2, subjectCode: "COCSC01", subjName: "Discrete Structures", image: "" },
@@ -89,7 +88,6 @@ export const words = [
     { year: 2, sem: 4, subjectCode: "COCSC11", subjName: "Software Engineering", image: "" },
     { year: 2, sem: 4, subjectCode: "COECC12", subjName: "Data Communication", image: "" },
     { year: 2, sem: 4, subjectCode: "COMTC13", subjName: "Probability and Stochastic Processes", image: "" },
-    { year: 2, sem: 4, subjectCode: "FEPD015", subjName: "Yoga", image: "" },
 ];
 
 export const materialTypes = ["ebooks", "ytPlaylist", "notes", "ppts", "pyqs"];
