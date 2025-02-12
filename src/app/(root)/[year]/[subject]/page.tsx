@@ -76,12 +76,21 @@ const Page = ({ params }: { params: Promise<{ year: string, subject: string }> }
       </div>
 
 
-         <div className='w-full'>
+         <div className='w-full'> 
+            
             {content==="Notes" && <Files contentData={contentData} />}
             {content==="PYQS" && <Files contentData={contentData} />}
             {content==="Ebooks" && <Files contentData={contentData} />}
             {content==="PPTs" && <Files contentData={contentData} />}
             {content==="Youtube Playlists" && <Youtube contentData={contentData} />}
+            {content==="" && <div className='flex justify-center items-center flex-col w-full my-5'>
+            <iframe
+       src="https://drive.google.com/file/d/1eMnGQeeV4dr-1Hzb1hlu1f0bE0tkNx_L/preview?usp=sharing "
+       className="w-3/4 min-w-[400px] h-[600px] rounded-lg shadow-lg "
+       allow="autoplay"
+       title="PDF Viewer"
+     />
+     </div>}
          </div>
       {/* PDF Viewer */}
 
