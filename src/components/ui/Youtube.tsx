@@ -31,6 +31,9 @@ const Youtube = ({ contentData }: { contentData: any }) => {
             </CardContent>
           </Card>
         ))}
+        {
+          data?.length === 0 && <h1 className="text-lg font-semibold text-gray-600">No Youtube Playlist Found</h1>
+        }
       </div>
     </div>
   );
