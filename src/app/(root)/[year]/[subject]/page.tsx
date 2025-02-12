@@ -55,7 +55,7 @@ const Page = ({ params }: { params: Promise<{ year: string, subject: string }> }
   
 
   return (
-    <div className="flex flex-col items-center  min-h-screen bg-gray-100 px-4 pt-36">
+    <div className="flex flex-col items-center w-full  min-h-screen bg-gray-100 px-4 pt-36">
       {/* Course Name */}
       <h1 className="text-4xl md:text-5xl font-bold text-gray-700 mb-8">
         {data?.coursename}
@@ -76,7 +76,7 @@ const Page = ({ params }: { params: Promise<{ year: string, subject: string }> }
       </div>
 
 
-         <div>
+         <div className='w-full'>
             {content==="Notes" && <Files contentData={contentData} />}
             {content==="PYQS" && <Files contentData={contentData} />}
             {content==="Ebooks" && <Files contentData={contentData} />}

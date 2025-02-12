@@ -6,7 +6,7 @@ import { Button } from './button';
 const Files = ({ contentData }: { contentData: any }) => {
   const [data, setData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
-  const [contentLink, setContentLink] = useState<any>(null);
+  const [contentLink, setContentLink] = useState<string>("https://drive.google.com/file/d/1eMnGQeeV4dr-1Hzb1hlu1f0bE0tkNx_L/preview?usp=sharing");
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   useEffect(() => {
@@ -23,12 +23,14 @@ const Files = ({ contentData }: { contentData: any }) => {
   const handleClick = (link: string, index: number) => {
     const newLink = link.replace('view', 'preview');
     setContentLink(newLink);
-    setSelectedIndex(index); // Set the selected index
+    setSelectedIndex(index); 
   };
 
   return (
+    <>
     <div className="flex justify-center items-center flex-col w-full my-5">
       <div className="flex justify-center flex-wrap w-full">
+
         {data?.map((item: any, index: number) => (
           <Card
             key={index}
@@ -45,15 +47,18 @@ const Files = ({ contentData }: { contentData: any }) => {
           </Card>
         ))}
       </div>
-      <div className="mt-12 w-3/4 min-w-[400px]">
-        <iframe
-          src={contentLink === null ? 'https://drive.google.com/file/d/1eMnGQeeV4dr-1Hzb1hlu1f0bE0tkNx_L/preview?usp=sharing ' : contentLink}
-          className="w-full h-[600px] rounded-lg shadow-lg"
-          allow="autoplay"
-          title="PDF Viewer"
-        />
-      </div>
-    </div>
+      
+     <div className="mt-12 w-3/4 min-w-[400px]">
+     <iframe
+       src={contentLink}
+       className="w-full h-[600px] rounded-lg shadow-lg"
+       allow="autoplay"
+       title="PDF Viewer"
+     />
+   </div>
+     </div>
+   
+   </>
   );
 };
 
