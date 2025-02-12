@@ -14,9 +14,9 @@ import { useRouter } from "next/navigation";
 import Loader from "@/components/ui/Loader";
 const AdminDelete = () => {
     const router = useRouter();
-    const [data, setData] = useState(null); 
+    const [data, setData] = useState([]); 
     const [loading, setLoading] = useState(true);
-
+   
     useEffect(() => {
         const fetchData = async () => {
             try {

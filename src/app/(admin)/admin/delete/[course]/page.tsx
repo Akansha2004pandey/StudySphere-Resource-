@@ -105,7 +105,7 @@ const Page = ({ params }: { params: Promise<{ course: string }> }) => {
     {contentData.map((item: any) => {
       return (
         <DeleteCard
-          key={item.id} // assuming each item has a unique 'id' or another unique field
+          key={item.id}
           coursename={data.coursename}
           coursecode={data.coursecode}
           content={content}
