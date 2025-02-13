@@ -54,7 +54,7 @@ export default function SignInForm() {
       <div className="w-full max-w-md p-8 space-y-6 bg-white/10 backdrop-blur-md rounded-2xl shadow-lg">
         <div className="text-center">
           <h1 className="text-3xl font-extrabold text-white">
-            Welcome Back to <span className="text-[#88f9f9]">ResourceCse</span>
+            Welcome Back to <span className="text-[#88f9f9]">Study Sphere</span>
           </h1>
           <p className="text-gray-300 text-sm">Sign in to continue</p>
         </div>

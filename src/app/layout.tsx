@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Resource CSE",
+  title: "Study Sphere",
   description: "Resource material for juniors",
 };
 
