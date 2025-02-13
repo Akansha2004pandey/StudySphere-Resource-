@@ -6,7 +6,7 @@ const Footer = () => {
     <div className='bg-slate-800 h-96 w-4/5 flex justify-center items-center rounded-lg'>
         <div className="footer-text items-center flex flex-col justify-evenly space-y-10">
             <div className='flex justify-center'>
-            <h1 className='text-white text-2xl'>© 2025 ResourceCSE</h1>
+            <h1 className='text-white text-md md:text-2xl'>© 2025 ResourceCSE</h1>
             <Image src="/favicon.ico" height={24} width={24} alt="logo" />
             </div>
             <div>
@@ -17,7 +17,11 @@ const Footer = () => {
                 alt="logo"
                 />
             </div>
-            <div><p className='text-gray-300'>Privacy Policy | Terms & Conditions | Cookies</p></div>
+            <div className='text-gray-300 md:text-lg text-sm flex flex-col md:flex-row align-middle items-center'>
+              <p>Privacy Policy&nbsp;&nbsp;&nbsp;</p>
+              <p>Terms & Conditions &nbsp;&nbsp;&nbsp;</p>
+              <p>Cookies</p>
+            </div>
         </div>
     </div>
   )

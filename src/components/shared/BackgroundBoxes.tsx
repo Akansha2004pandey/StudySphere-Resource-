@@ -19,10 +19,12 @@ export function BackgroundBoxesDemo() {
       />
 
       <Boxes />
-      <h1 className={cn("text-white relative text-5xl font-bold")}>
+      <h1 className={cn("text-white relative text-3xl md:text-5xl font-bold mx-4")}>
         Get curated study material <br/> for your semester exams! 
       </h1>
-      <TypewriterEffectSmooth words={words} className="text-white"/>
+      <div className="p-6 z-10 text-gray-500">
+          <TypewriterEffectSmooth words={words}/>
+      </div>
     </div>
   );
 }
