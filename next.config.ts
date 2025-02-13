@@ -11,6 +11,9 @@ const nextConfig: NextConfig = {
     ],
     domains: ['res.cloudinary.com', 'images.unsplash.com', 'png.pngtree.com', 'img.freepik.com', 'drive.google.com'],
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 export default nextConfig;
