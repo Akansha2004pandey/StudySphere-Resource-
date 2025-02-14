@@ -1,14 +1,13 @@
 "use client";
 import React from "react";
-import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 const  page=()=> {
   const router = useRouter();
   return (
     <div>
-       <BackgroundBeamsWithCollision>
-        <div className="flex flex-col items-center justify-center">
+    
+        <div className="flex flex-col items-center justify-center h-screen">
         <h2 className="text-2xl relative z-20 md:text-4xl lg:text-7xl font-bold text-center text-black dark:text-white font-sans tracking-tight">
         Welcome back{" "}
         <div className="relative mx-auto inline-block w-max [filter:drop-shadow(0px_1px_3px_rgba(27,_37,_80,_0.14))]">
@@ -49,8 +48,7 @@ const  page=()=> {
         </div>
    
       
-    </BackgroundBeamsWithCollision>
-    
+
     </div>
    
 
