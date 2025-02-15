@@ -115,7 +115,7 @@ const Page = ({ params }: { params: Promise<{ year: string, subject: string }> }
         )}
 
       
-        <div className="bg-gray-100 text-gray-900 rounded-2xl shadow-xl p-6">
+        <div className="bg-gray-800 text-gray-900 rounded-2xl shadow-xl p-6">
           {content === "Notes" && <Files contentData={contentData} />}
           {content === "PYQS" && <Files contentData={contentData} />}
           {content === "Ebooks" && <Files contentData={contentData} />}
