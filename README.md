@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Study Sphere
+<p align="center">
+  <img src="/src/app/favicon.ico" alt="Study Sphere Logo" width="150">
+</p>
 
-## Getting Started
+## About
 
-First, run the development server:
+**Study Sphere** is a centralized platform designed to provide **college juniors** with essential study materials. Our goal is to simplify access to high-quality academic resources in a structured and user-friendly manner.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+🔗 **Live Deployment:** [Study Sphere](https://study-sphere-rosy-ten.vercel.app/)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+🔗 **GitHub Repository:** [ResourceCSE](https://github.com/Sans11Pentium/ResourceCSE/tree/main)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## What We Provide
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+We offer a variety of study materials tailored for students:
 
-## Learn More
+### 📌 Handwritten Notes
 
-To learn more about Next.js, take a look at the following resources:
+- Well-structured handwritten notes to aid in understanding complex concepts.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 📊 Useful PPTs
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Presentation slides covering key topics for quick revision and understanding.
 
-## Deploy on Vercel
+### 📜 Previous Year Questions (PYQs)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Access to past exam papers to help students practice effectively.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 📖 eBooks
+
+- A collection of textbooks and reference materials for in-depth learning.
+
+### 🎥 YouTube Resources
+
+- Curated video tutorials and lectures for better conceptual clarity.
+
+## Features
+
+✅ **Easy Navigation** – Find resources categorized by subject and year.
+✅ **User-Friendly Interface** – A simple, intuitive design for hassle-free access.
+✅ **Comprehensive Materials** – Covers a wide range of topics essential for students.
+✅ **Completely Free** – Open access to all resources without any subscription.
+
+## Contributing
+
+We welcome contributions! If you'd like to add or improve study materials, feel free to fork the repository and create a pull request.
+
+---
+
+📧 **Contact Us**: For queries and feedback, feel free to reach out via GitHub Issues.
+
+---
+
+Made by :
+Akansha Pandey &
+Sanskriti
+
