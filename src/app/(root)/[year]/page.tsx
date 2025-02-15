@@ -1,11 +1,11 @@
 "use client";
-import React, { useState, useEffect, AnyActionArg } from "react";
+import React, { useState, useEffect } from "react";
 import { getSubjects } from "@/lib/actions/subject.action";
 import SubjectCard from "@/components/ui/SubjectCard";
 import PageNotFound from "@/components/ui/PageNotFound";
 import Loader from "@/components/ui/Loader";
 
-const page = ({ params }: { params: Promise<{ year: string }> }) => {
+const Page = ({ params }: { params: Promise<{ year: string }> }) => {
   const [subjects, setSubjects] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -18,28 +18,18 @@ const page = ({ params }: { params: Promise<{ year: string }> }) => {
         const yearNumber = Number(year);
         setYearNumber(yearNumber);
 
-        if (isNaN(yearNumber)) {
-          console.error("Invalid year parameter:", year);
-          setError("Invalid Year");
-          setLoading(false);
-          return;
-        }
-
-        if (yearNumber < 1 || yearNumber > 2) {
+        if (isNaN(yearNumber) || yearNumber < 1 || yearNumber > 2) {
           setError("Page Not Found");
           setLoading(false);
           return;
         }
 
-        const subjectsFirstYearData = await getSubjects({
-          year: yearNumber,
-          sem: yearNumber === 1 ? 1 : 3, 
-        });
-        const subjectsSecondYearData = await getSubjects({
-          year: yearNumber,
-          sem: yearNumber === 1 ? 2 : 4, 
-        });
-        setSubjects([subjectsFirstYearData, subjectsSecondYearData]); 
+        const subjectsData = await Promise.all([
+          getSubjects({ year: yearNumber, sem: yearNumber === 1 ? 1 : 3 }),
+          getSubjects({ year: yearNumber, sem: yearNumber === 1 ? 2 : 4 })
+        ]);
+
+        setSubjects(subjectsData);
       } catch (err) {
         console.error(err);
         setError("Error fetching subjects");
@@ -51,74 +41,39 @@ const page = ({ params }: { params: Promise<{ year: string }> }) => {
     fetchSubjects();
   }, [params]);
 
-  if (loading) {
-    return <Loader />;
-  }
-
-  if (error) {
-    return (
-      <div>
-        {error === "Page Not Found" ? <PageNotFound /> : <div>{error}</div>}
-      </div>
-    );
-  }
+  if (loading) return <Loader />;
+  if (error) return error === "Page Not Found" ? <PageNotFound /> : <div className="text-center text-red-500">{error}</div>;
 
   return (
-    <div className="bg-gradient-to-r from-[#073b4c] via-[#032d3b] to-[#04232d] py-40">
-      <div className="text-[50px] font-extrabold text-center">
-        <span className="text-white">
-          {yearNumber === 1 ? "1st Year" : "2nd Year"} Subjects
-        </span>
-      </div>
+    <div className="min-h-screen bg-gray-900 text-white py-16 px-4 pt-36">
+      <h1 className="text-4xl font-bold text-center mb-10">
+        {yearNumber === 1 ? "1st Year" : "2nd Year"} Subjects
+      </h1>
 
-      {subjects.length > 0 && (
-        <>
-          {/* First Semester Subjects */}
-          <div className="flex flex-col justify-center mx-auto items-center">
-            <div className="text-3xl font-semibold my-5 bg-gradient-to-r from-[#97f5ef] to-[#97f5ef] bg-clip-text text-transparent">
-              <i>{yearNumber === 1 ? "1st" : "3rd"} Semester</i>
-            </div>
+      {subjects.map((semesterSubjects, index) => (
+        <div key={index} className="mb-16">
+          <h2 className="text-2xl font-semibold text-center mb-6">
+            {yearNumber === 1 ? (index === 0 ? "1st" : "2nd") : (index === 0 ? "3rd" : "4th")} Semester
+          </h2>
 
-            <div className="flex flex-wrap justify-center mx-auto mb-20">
-              {subjects[0]?.length > 0 ? (
-                subjects[0].map((subject:any, index:any) => (
-                  <SubjectCard
-                    subjectCode={subject.subjectCode}
-                    year={yearNumber.toString()}
-                    subjectName={subject.subjName}
-                    key={index}
-                  />
-                ))
-              ) : (
-                <div>No subjects available for this semester.</div>
-              )}
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
+            {semesterSubjects.length > 0 ? (
+              semesterSubjects.map((subject: any, index: number) => (
+                <SubjectCard
+                  key={index}
+                  subjectCode={subject.subjectCode}
+                  year={yearNumber.toString()}
+                  subjectName={subject.subjName}
+                />
+              ))
+            ) : (
+              <p className="text-center col-span-full">No subjects available for this semester.</p>
+            )}
           </div>
-
-          <div className="flex flex-col justify-center mx-auto items-center">
-            <div className="text-3xl font-semibold my-5 bg-gradient-to-r from-[#97f5ef] to-[#97f5ef] bg-clip-text text-transparent">
-              <i>{yearNumber === 1 ? "2nd" : "4th"} Semester</i>
-            </div>
-
-            <div className="flex flex-wrap justify-center mx-auto mb-20">
-              {subjects[1]?.length > 0 ? (
-                subjects[1].map((subject:any, index:any) => (
-                  <SubjectCard
-                    subjectCode={subject.subjectCode}
-                    year={yearNumber.toString()}
-                    subjectName={subject.subjName}
-                    key={index}
-                  />
-                ))
-              ) : (
-                <div>No subjects available for this semester.</div>
-              )}
-            </div>
-          </div>
-        </>
-      )}
+        </div>
+      ))}
     </div>
   );
 };
 
-export default page;
+export default Page;

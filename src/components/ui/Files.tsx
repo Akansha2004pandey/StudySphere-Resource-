@@ -26,6 +26,22 @@ const Files = ({ contentData }: { contentData: any }) => {
     setSelectedIndex(index); 
   };
 
+  
+  const handleDownload = (link: string) => {
+    const fileIdMatch = link.match(/\/d\/(.*?)\//);
+    if (fileIdMatch && fileIdMatch[1]) {
+      const directDownloadLink = `https://drive.google.com/uc?export=download&id=${fileIdMatch[1]}`;
+      const anchor = document.createElement('a');
+      anchor.href = directDownloadLink;
+      anchor.download = "file.pdf"; 
+      document.body.appendChild(anchor);
+      anchor.click();
+      document.body.removeChild(anchor);
+    } else {
+      alert("Invalid download link");
+    }
+  };
+
   return (
     <div className="flex flex-col items-center w-full my-8">
       {/* File Cards */}
@@ -34,18 +50,26 @@ const Files = ({ contentData }: { contentData: any }) => {
           <Card
             key={index}
             className={`shadow-md border border-gray-300 rounded-xl p-5 min-w-[280px] w-[30%] transition-all duration-300 hover:scale-105 hover:shadow-xl 
-            ${selectedIndex === index ? 'bg-[#e0f7fa] border-teal-400' : 'bg-white'}`}
+            ${selectedIndex === index ? 'bg-[#c4ffdf]' : 'bg-white'}`}
           >
             <CardHeader>
               <CardTitle className="text-lg font-semibold text-gray-800">{item.title}</CardTitle>
             </CardHeader>
-            <CardContent className="flex justify-center">
+            <CardContent className="flex flex-col items-center gap-3">
               <Button 
                 variant="default" 
                 onClick={() => handleClick(item.link, index)}
-                className="px-5 py-2 text-sm font-medium bg-teal-500 text-white rounded-md shadow-md hover:bg-teal-600 transition"
+                className="px-5 py-2 text-sm font-medium bg-[#2d9884] text-white rounded-md shadow-md hover:bg-teal-600 transition"
               >
                 Open PDF
+              </Button>
+              {/* Direct Download Button */}
+              <Button 
+                variant="default" 
+                onClick={() => handleDownload(item.link)}
+                className="px-5 py-2 text-sm font-medium bg-[#2c965e] text-white rounded-md shadow-md hover:bg-[#77d6b4] transition"
+              >
+                Download PDF
               </Button>
             </CardContent>
           </Card>
