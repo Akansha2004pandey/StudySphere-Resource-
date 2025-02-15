@@ -1,7 +1,8 @@
 # Study Sphere
 <p align="center">
-  <img src="/src/app/favicon.ico" alt="Study Sphere Logo" width="200">
+  <img src="/src/app/favicon.ico" alt="Study Sphere Logo" width="150">
 </p>
+
 ## About
 
 **Study Sphere** is a centralized platform designed to provide **college juniors** with essential study materials. Our goal is to simplify access to high-quality academic resources in a structured and user-friendly manner.
