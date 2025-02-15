@@ -15,13 +15,13 @@ const page = () => {
        <div className="w-full flex flex-col items-center justify-around p-10 shadow-regal-blue bg-[url('https://images.unsplash.com/photo-1472289065668-ce650ac443d2?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGV4dCUyMGJhY2tncm91bmR8ZW58MHx8MHx8fDA%3D')] bg-cover bg-center bg-no-repeat">
           <h1 className='text-3xl text-blue-950 font-bold text-center'>Start exploring now</h1>
           <div className="flex flex-col align-middle justify-center md:flex-row md:justify-center w-3/5 items-center p-4 md:space-x-16">
-              <div className="flex flex-col h-96 justify-center items-center align-middle space-y-8">
+              <div className="flex flex-col h-48 md:h-96 justify-center items-center align-middle space-y-8">
                 <h2 className="text-xl md:text-3xl" >
                   First year
                 </h2>
                 <button className="customButton" onClick={() => router.push(`/1`)}>Check now</button>
               </div>
-              <div className="flex flex-col h-96 justify-center items-center align-middle space-y-8">
+              <div className="flex flex-col h-48 md:h-96 justify-center items-center align-middle space-y-8">
                 <h2 className="text-xl md:text-3xl" >
                   Second year
                 </h2>
