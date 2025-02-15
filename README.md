@@ -45,10 +45,6 @@ We offer a variety of study materials tailored for students:
 
 We welcome contributions! If you'd like to add or improve study materials, feel free to fork the repository and create a pull request.
 
-## License
-
-This project is open-source and distributed under the **MIT License**.
-
 ---
 
 📧 **Contact Us**: For queries and feedback, feel free to reach out via GitHub Issues.
