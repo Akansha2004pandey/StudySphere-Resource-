@@ -11,18 +11,18 @@ export function BackgroundBoxesDemo() {
     <div className="hero-banner relative w-full overflow-hidden bg-slate-800 flex flex-col items-center justify-center">
       <div className="absolute inset-0 w-full h-full bg-slate-800 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
       <Image
-      src="https://png.pngtree.com/png-vector/20230107/ourmid/pngtree-smiling-people-study-together-with-book-using-computer-png-image_6553883.png"
+      src="/banner-img.png"
       alt="background"
       height={480}
       width={480} 
-      className="z-10"
+      className="z-10 top-0 md:mt-10"
       />
 
       <Boxes />
       <h1 className={cn("text-white relative text-3xl md:text-5xl font-bold mx-4")}>
         Get curated study material <br/> for your semester exams! 
       </h1>
-      <div className="p-6 z-10 text-gray-500">
+      <div className="z-10 text-gray-500">
           <TypewriterEffectSmooth words={words}/>
       </div>
     </div>
