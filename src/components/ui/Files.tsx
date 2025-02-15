@@ -27,38 +27,41 @@ const Files = ({ contentData }: { contentData: any }) => {
   };
 
   return (
-    <>
-    <div className="flex justify-center items-center flex-col w-full my-5">
-      <div className="flex justify-center flex-wrap w-full">
-
+    <div className="flex flex-col items-center w-full my-8">
+      {/* File Cards */}
+      <div className="flex flex-wrap justify-center gap-6 w-full">
         {data?.map((item: any, index: number) => (
           <Card
             key={index}
-            className={`shadow-lg border border-gray-200 rounded-lg p-4 my-2 min-w-[300px] w-1/3 mx-3 ${selectedIndex === index ? 'bg-[#c0ffed] ' : ''}`} // Apply a different background color for the selected card
+            className={`shadow-md border border-gray-300 rounded-xl p-5 min-w-[280px] w-[30%] transition-all duration-300 hover:scale-105 hover:shadow-xl 
+            ${selectedIndex === index ? 'bg-[#e0f7fa] border-teal-400' : 'bg-white'}`}
           >
             <CardHeader>
-              <CardTitle className="text-lg font-semibold">{item.title}</CardTitle>
+              <CardTitle className="text-lg font-semibold text-gray-800">{item.title}</CardTitle>
             </CardHeader>
             <CardContent className="flex justify-center">
-              <Button variant="default" onClick={() => handleClick(item.link, index)}>
-                Visit Pdf
+              <Button 
+                variant="default" 
+                onClick={() => handleClick(item.link, index)}
+                className="px-5 py-2 text-sm font-medium bg-teal-500 text-white rounded-md shadow-md hover:bg-teal-600 transition"
+              >
+                Open PDF
               </Button>
             </CardContent>
           </Card>
         ))}
       </div>
-      
-     <div className="mt-12 w-3/4 min-w-[400px]">
-     <iframe
-       src={contentLink}
-       className="w-full h-[600px] rounded-lg shadow-lg"
-       allow="autoplay"
-       title="PDF Viewer"
-     />
-   </div>
-     </div>
-   
-   </>
+
+      {/* PDF Viewer */}
+      <div className="mt-12 w-[80%] min-w-[400px] bg-white rounded-lg shadow-lg p-4 border border-gray-300">
+        <iframe
+          src={contentLink}
+          className="w-full h-[600px] rounded-lg shadow-md border border-gray-200"
+          allow="autoplay"
+          title="PDF Viewer"
+        />
+      </div>
+    </div>
   );
 };
 
