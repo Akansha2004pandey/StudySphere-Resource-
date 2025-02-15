@@ -1,16 +1,21 @@
-import React from 'react'
+import React from "react";
 
 const Loader = () => {
   return (
-    <div>
-      <div className="flex items-center justify-center h-screen bg-gray-100">
-      <div className="flex items-center space-x-2">
-        <div className="w-16 h-16 border-4 border-t-4 border-gray-300 rounded-full animate-spin border-t-[#2a7878]"></div>
+    <div className="flex items-center justify-center h-screen bg-gray-900">
+      <div className="relative flex items-center justify-center">
+      
+        <div className="w-36 h-36 border-4 border-gray-700 border-t-[#2a7878] rounded-full animate-spin absolute"></div>
+
         
+        <img
+          src="/stack-of-books.png"
+          alt="Loading..."
+          className="w-20 h-20 object-contain drop-shadow-lg"
+        />
       </div>
     </div>
-    </div>
-  )
-}
+  );
+};
 
-export default Loader
+export default Loader;
