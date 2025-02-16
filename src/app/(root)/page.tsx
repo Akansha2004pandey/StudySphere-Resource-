@@ -20,7 +20,7 @@ const page = () => {
           <h1 className='text-3xl text-blue-950 font-bold text-center my-8'>Start exploring now</h1>
           <div className="flex flex-col align-middle justify-center mx-2 my-12 items-center gap-12">
 
-
+            <div className="flex flex-col md:flex-row">
             <div className='flex flex-col md:flex-row justify-center space-x-8 items-center shadow-md rounded-md p-2 w-full'>
               <div>
                 <Image
@@ -41,7 +41,7 @@ const page = () => {
 
             <div className='flex flex-col md:flex-row justify-center space-x-8 items-center shadow-md rounded-md p-2 w-full'>
               <div className="flex flex-col h-48 md:h-96 justify-center items-center align-middle space-y-8">
-                <h2 className="text-xl md:text-3xl" >
+                <h2 className="text-xl md:text-3xl md:ml-6" >
                   Second year
                 </h2>
                 <Button variant="secondary" onClick={() => router.push(`/2`)}>Check now</Button>
@@ -55,8 +55,9 @@ const page = () => {
               />
               </div>
             </div>
+            </div>
 
-
+              <div className="flex flex-col md:flex-row">
               <div className='flex flex-col md:flex-row justify-center space-x-8 items-center shadow-md rounded-md p-2 w-full'>
               <div>
                 <Image
@@ -77,7 +78,7 @@ const page = () => {
 
               <div className='flex flex-col md:flex-row justify-center space-x-8 items-center shadow-md rounded-md p-2 w-full'>
               <div className="flex flex-col h-48 md:h-96 justify-center items-center align-middle space-y-8">
-                <h2 className="text-xl md:text-3xl" >
+                <h2 className="text-xl md:text-3xl md:ml-8" >
                   Fourth year
                 </h2>
                 <Button variant="secondary" onClick={() => router.push(`/4`)}>Check now</Button>
@@ -91,7 +92,7 @@ const page = () => {
               />
               </div>
               </div>
-
+              </div>
 
           </div>
        </div>
