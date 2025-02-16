@@ -42,7 +42,17 @@ const Page = ({ params }: { params: Promise<{ year: string, subject: string }> }
   }, [params]);
 
   useEffect(() => {
-    setContentData(data?.[content.toLowerCase().replace(" ", "")] || null);
+
+    const contentKeyMap: Record<string, string> = {
+      "Ebooks": "ebooks",
+      "Notes": "notes",
+      "Youtube Playlists": "ytPlaylist",
+      "PYQS": "pyqs",
+      "PPTs": "ppts",
+    };
+  
+    const key = contentKeyMap[content] || "";
+    setContentData(key ? data?.[key] : null);
   }, [content, data]);
 
   if (loading) {
