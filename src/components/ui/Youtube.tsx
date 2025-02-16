@@ -27,7 +27,7 @@ const Youtube = ({ contentData }: { contentData: any }) => {
               <CardTitle className="text-lg font-semibold">{item.title}</CardTitle>
             </CardHeader>
             <CardContent className="flex justify-center">
-              <Button variant="default"><a href={item.link}>Visit Playlist</a></Button>
+              <Button variant={"default"} className='bg-gray-900 text-white'><a href={item.link}>Visit Playlist</a></Button>
             </CardContent>
           </Card>
         ))}
