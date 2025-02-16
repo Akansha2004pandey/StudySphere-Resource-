@@ -4,6 +4,7 @@ export const testimonials = [
       "Former SDE Intern’24 @ Salesforce | Google Generation Scholar'24 | CSAI NSUT'25 | Mentor @ D'Code NSUT | Web Developer & ML Enthusiast | JP Morgan ML Quant Challenge'23 Finalist | CN Contest AIR 22",
     name: "Vishu Aasliya",
     designation: "Study material and handwritten notes",
+    year: "CSAI 2021-2025",
     src: "https://drive.google.com/uc?export=view&id=1HL3yeNRuiZSVGBEQcSSaa0gUgWueMksv",
   },
   {
@@ -11,6 +12,7 @@ export const testimonials = [
       "Former SDE Intern’24 @ Salesforce | Google Generation Scholar'24 | CSAI NSUT'25 | Mentor @ D'Code NSUT | Web Developer & ML Enthusiast | JP Morgan ML Quant Challenge'23 Finalist | CN Contest AIR 22",
     name: "Akansha Pandey",
     designation: "Website Development",
+    year: "CSE 2022-2026",
     src: "https://drive.google.com/uc?export=view&id=1zCpfLCC42vOfbNFmaGTL0u7kSSIobthQ",
   },
   {
@@ -18,6 +20,7 @@ export const testimonials = [
       "Former SDE Intern’24 @ Salesforce | Google Generation Scholar'24 | CSAI NSUT'25 | Mentor @ D'Code NSUT | Web Developer & ML Enthusiast | JP Morgan ML Quant Challenge'23 Finalist | CN Contest AIR 22",
     name: "Sanskriti",
     designation: "Website Development",
+    year: "CSE 2022-2026",
     src: "https://drive.google.com/uc?export=view&id=13pqUjaw8-K_RmHWWfz_tzujCxPpgQOxd",
   },
 ];

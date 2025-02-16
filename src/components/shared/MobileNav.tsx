@@ -2,14 +2,18 @@
 import { Sheet, SheetTitle, SheetTrigger, SheetDescription, SheetHeader, SheetContent } from "../ui/sheet"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
+import { Shield, FolderCode, Heart } from "lucide-react";
 export const MobileNav = () => {
     const router = useRouter();
     return (
         <div className="md:hidden relative">
         <Sheet>
           <SheetTitle className="sr-only">Study Sphere</SheetTitle>
-          <div className="flex justify-between items-center px-4 py-2">
-            <Image src="/favicon.ico" alt="logo" width={48} height={48} />
+          <div className="flex justify-between items-center px-4 py-2 bg-gray-300">
+            <div className="flex flex-col align-middle items-center justify-center">
+              <Image src="/favicon.ico" alt="logo" width={36} height={36} />
+              <p className="font-semibold text-gray-900">Study Sphere</p>
+            </div>
             <SheetTrigger asChild>
               <button className="p-2">
                 <Image 
@@ -23,64 +27,16 @@ export const MobileNav = () => {
             </SheetTrigger>
           </div>
 
-          <SheetContent side="left" className="p-6">
-            <div className="flex flex-col justify-between gap-4 text-lg">
-            <Image src="/favicon.ico" alt="logo" width={24} height={24} />
-              <button onClick={() => router.push("/")}>Study Sphere Home</button>
-              <button onClick={() => router.push("/")}>About the devs</button>
-              <div className="border-t pt-4">
-                <h4 className="font-bold text-xl text-center">What we provide</h4>
-                <div className="flex flex-col space-y-2 text-sm mt-6">
-                  <p className="text-white sidebar-items">
-                    <Image 
-                    src="/post-it.png"
-                    alt="notes"
-                    height={24}
-                    width={24}
-                    className="text-white"
-                    />
-                    Handwritten Notes</p>
-                  <p className="sidebar-items">
-                  <Image 
-                    src="/question.png"
-                    alt="notes"
-                    height={24}
-                    width={24}
-                    className="text-white"
-                    />
-                    Previous year Papers</p>
-                  <p className="sidebar-items">
-                  <Image 
-                    src="/youtube.png"
-                    alt="notes"
-                    height={24}
-                    width={24}
-                    className="text-white"
-                    />
-                    Must watch Youtube playlists</p>
-                  <p className="sidebar-items">
-                  <Image 
-                    src="/stack-of-books.png"
-                    alt="notes"
-                    height={24}
-                    width={24}
-                    className="text-white"
-                    />
-                    E-books</p>
-                  <p className="sidebar-items">
-                  <Image 
-                    src="/ppt.png"
-                    alt="notes"
-                    height={24}
-                    width={24}
-                    className="text-white"
-                    />
-                    Useful PPTs</p>
+          <SheetContent side="top" className="p-6 overflow-y-hidden bg-gray-300 items-center align-middle flex justify-center">
+            <div className="flex flex-col gap-4 text-sm font-bold h-full">
+              <div className="flex flex-col justify-between w-full">
+                <div className="flex flex-col justify-between space-y-6">
+                  <button className="p-2 bg-gray-100 hover:bg-gray-200 rounded-md flex gap-2 justify-center align-middle" onClick={() => router.push("/")}><Image src="/favicon.ico" alt="logo" width={24} height={24} />Study Sphere Home</button>
+                  <button className="p-2 bg-gray-100 hover:bg-gray-200 rounded-md flex gap-2 justify-center align-middle" onClick={() => router.push("/")}><FolderCode />About the devs</button>
+                  <button className="p-2 bg-gray-100 hover:bg-gray-200 rounded-md flex gap-2 justify-center align-middle" onClick={() => router.push("/")}><Heart />What we provide</button>
+                  <button className="p-2 rounded-md text-white bg-blue-900 hover:bg-blue-700 flex gap-2 justify-center align-middle" onClick={() => router.push("/admin")}><Shield />Admin Sign in</button>
                 </div>
               </div>
-              <div className="flex flex-col justify-end mt-12 items-middle">
-            <button className="p-2" onClick={() => router.push("/admin")}>Admin Sign in</button>
-            </div>
             </div>
           </SheetContent>
         </Sheet>

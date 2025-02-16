@@ -15,7 +15,7 @@ body {
 }
 
 .sidebar-items{
-  @apply gap-3 p-4 flex justify-start bg-blue-800 text-white font-bold rounded-md mx-2;
+  @apply gap-3 p-4 flex justify-start bg-slate-900 text-white font-bold rounded-md mx-2 items-center align-middle;
 }
 
 @layer base {

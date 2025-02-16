@@ -11,7 +11,7 @@ export function BackgroundBoxesDemo() {
     <div className="hero-banner relative w-full overflow-hidden bg-slate-800 flex flex-col items-center justify-center">
       <div className="absolute inset-0 w-full h-full bg-slate-800 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
       <Image
-      src="/banner-img.png"
+      src="https://static.vecteezy.com/system/resources/previews/023/564/328/non_2x/hand-drawn-student-collage-illustration-free-png.png"
       alt="background"
       height={480}
       width={480} 

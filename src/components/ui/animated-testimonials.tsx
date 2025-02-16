@@ -9,6 +9,7 @@ type Testimonial = {
   quote: string;
   name: string;
   designation: string;
+  year: string;
   src: string;
 };
 export const AnimatedTestimonials = ({
@@ -123,6 +124,9 @@ export const AnimatedTestimonials = ({
             </h3>
             <p className="text-sm text-gray-400">
               {testimonials[active].designation}
+            </p>
+            <p className="text-sm text-gray-400">
+              {testimonials[active].year}
             </p>
             {testimonials[active].name == "Vishu Aasliya" && 
             <motion.p className="text-lg text-gray-400 mt-8">
