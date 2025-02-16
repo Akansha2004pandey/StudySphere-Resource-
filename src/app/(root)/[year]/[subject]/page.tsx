@@ -42,7 +42,17 @@ const Page = ({ params }: { params: Promise<{ year: string, subject: string }> }
   }, [params]);
 
   useEffect(() => {
-    setContentData(data?.[content.toLowerCase().replace(" ", "")] || null);
+
+    const contentKeyMap: Record<string, string> = {
+      "Ebooks": "ebooks",
+      "Notes": "notes",
+      "Youtube Playlists": "ytPlaylist",
+      "PYQS": "pyqs",
+      "PPTs": "ppts",
+    };
+  
+    const key = contentKeyMap[content] || "";
+    setContentData(key ? data?.[key] : null);
   }, [content, data]);
 
   if (loading) {
@@ -73,8 +83,8 @@ const Page = ({ params }: { params: Promise<{ year: string, subject: string }> }
         {/* Go Back Button */}
         <button 
           onClick={() => router.back()}
-          className="flex items-center gap-2 text-gray-900 bg-[#b5ffcb] px-5 py-2 rounded-lg shadow-md 
-            hover:bg-[#38a3a5] hover:text-white transition-all duration-300 mb-6"
+          className="flex items-center gap-2 bg-gray-100 text-gray-900 px-5 py-2 rounded-lg shadow-md 
+            hover:bg-gray-600 transition-all duration-300 mb-6"
         >
           <ArrowLeft className="w-5 h-5" />
           Go Back
@@ -82,25 +92,25 @@ const Page = ({ params }: { params: Promise<{ year: string, subject: string }> }
 
         {/* Header Section */}
         <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold text-[#ffffff] mb-4">
+          <h1 className="text-4xl font-bold mb-4">
             {data?.coursename}
           </h1>
-          <p className="text-[#b3ffb5] text-2xl font-semibold max-w-2xl mx-auto">
+          <p className="text-gray-300 text-lg font-semibold">
             Course Code: {coursecode}
           </p>
         </div>
 
         {/* Content Navigation */}
         {availableContent.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
             {availableContent.map((item, index) => (
               <button
                 key={index}
                 onClick={() => setContent(item)}
                 className={`p-6 rounded-xl transition-all duration-300 flex items-center gap-3 w-full 
                   ${content === item 
-                    ? 'bg-[#9eeeae] text-gray-900 shadow-lg scale-105 font-bold' 
-                    : 'bg-[#8bffea] text-gray-900 hover:bg-[#38a3a5] hover:text-white hover:scale-105 shadow-md font-bold'
+                    ? 'bg-gray-600 text-white shadow-lg scale-105 font-bold' 
+                    : 'bg-gray-200 hover:bg-gray-300 text-gray-800 hover:text-gray-800 hover:scale-105 shadow-md font-bold'
                   }`}
               >
                 {getIcon(item)}
@@ -109,13 +119,13 @@ const Page = ({ params }: { params: Promise<{ year: string, subject: string }> }
             ))}
           </div>
         ) : (
-          <div className="text-center p-8 bg-white rounded-lg shadow-md">
-            <p className="text-gray-600 text-lg">No content available for this subject.</p>
+          <div className="text-center p-8 bg-gray-700 rounded-lg shadow-md">
+            <p className="text-gray-400 text-lg">No content available for this subject.</p>
           </div>
         )}
 
-      
-        <div className="bg-gray-800 text-gray-900 rounded-2xl shadow-xl p-6">
+        {/* Content Display */}
+        <div className="bg-gray-800 text-gray-200 rounded-2xl shadow-xl p-6">
           {content === "Notes" && <Files contentData={contentData} />}
           {content === "PYQS" && <Files contentData={contentData} />}
           {content === "Ebooks" && <Files contentData={contentData} />}
@@ -134,7 +144,6 @@ const Page = ({ params }: { params: Promise<{ year: string, subject: string }> }
             </div>
           )}
         </div>
-
       </div>
     </div>
   );
