@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="footer-text items-center flex flex-col justify-evenly space-y-10">
             <div className='flex justify-center'>
             <h1 className='text-white text-md md:text-2xl'>© 2025 Study Sphere</h1>
-            <Image src="/favicon.ico" height={24} width={24} alt="logo" />
+            &nbsp;&nbsp;<Image src="/favicon.ico" height={36} width={36} alt="logo" />
             </div>
             <div>
                 <Image

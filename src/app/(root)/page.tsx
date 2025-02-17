@@ -21,7 +21,7 @@ const page = () => {
           <div className="flex flex-col align-middle justify-center mx-2 my-12 items-center gap-12">
 
             <div className="flex flex-col md:flex-row">
-            <div className='flex flex-col md:flex-row justify-center space-x-8 items-center shadow-md rounded-md p-2 w-full'>
+            <div className='flex flex-col md:flex-row justify-center space-x-8 items-center shadow-md rounded-md p-2 w-full hover:shadow-lg'>
               <div>
                 <Image
                 src="https://static.vecteezy.com/system/resources/previews/023/564/319/non_2x/hand-drawn-student-collage-illustration-free-png.png"
@@ -39,7 +39,7 @@ const page = () => {
             </div>
 
 
-            <div className='flex flex-col md:flex-row justify-center space-x-8 items-center shadow-md rounded-md p-2 w-full'>
+            <div className='flex flex-col md:flex-row justify-center space-x-8 items-center shadow-md rounded-md p-2 w-full hover:shadow-lg'>
               <div className="flex flex-col h-48 md:h-96 justify-center items-center align-middle space-y-8">
                 <h2 className="text-xl md:text-3xl md:ml-6" >
                   Second year
@@ -58,7 +58,7 @@ const page = () => {
             </div>
 
               <div className="flex flex-col md:flex-row">
-              <div className='flex flex-col md:flex-row justify-center space-x-8 items-center shadow-md rounded-md p-2 w-full'>
+              <div className='flex flex-col md:flex-row justify-center space-x-8 items-center shadow-md rounded-md p-2 w-full hover:shadow-lg'>
               <div>
                 <Image
                 src="https://static.vecteezy.com/system/resources/previews/023/556/385/non_2x/hand-drawn-student-collage-illustration-free-png.png"
@@ -76,7 +76,7 @@ const page = () => {
               </div>
 
 
-              <div className='flex flex-col md:flex-row justify-center space-x-8 items-center shadow-md rounded-md p-2 w-full'>
+              <div className='flex flex-col md:flex-row justify-center space-x-8 items-center shadow-md rounded-md p-2 w-full hover:shadow-lg'>
               <div className="flex flex-col h-48 md:h-96 justify-center items-center align-middle space-y-8">
                 <h2 className="text-xl md:text-3xl md:ml-8" >
                   Fourth year
@@ -96,7 +96,7 @@ const page = () => {
 
           </div>
        </div>
-       <div className="flex flex-col justify-center gap-4 items-center my-6">
+       <div id="what-we-provide" className="flex flex-col justify-center gap-4 items-center my-6">
               <h4 className="font-extrabold text-xl text-center">What we provide</h4>
               <div className="flex flex-col w-4/5 space-y-2 text-sm mt-6">
                 <p className="text-white sidebar-items bg-slate-900">
@@ -146,7 +146,7 @@ const page = () => {
                   Useful PPTs</p>
               </div>
             </div>
-       <div className="contributors bg-slate-900 p-6 flex flex-col items-center justify-center border-t-blur">
+       <div id="about" className="contributors bg-slate-900 p-6 flex flex-col items-center justify-center border-t-blur">
           <p className="text-center text-2xl text-gray-200">Our contributors</p>
           <AnimatedTestimonials testimonials={testimonials} />
           <Footer />
