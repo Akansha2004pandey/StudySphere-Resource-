@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import AuthProvider from "@/context/Authprovider";
 import { Toaster } from "@/components/ui/toaster";
-
+import { Analytics } from '@vercel/analytics/next';
 import "./globals.css";
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,6 +33,7 @@ export default function RootLayout({
       > 
         {children}
         <Toaster/>
+        <Analytics />
       </body>
     </html>
     </AuthProvider>
