@@ -4,6 +4,7 @@ import { Menu, MenuItem, HoveredLink } from "../ui/navbar-menu";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export function NavbarDemo() {
   return (
@@ -28,8 +29,8 @@ function Navbar({ className }: { className?: string }) {
           />
           <p>Study Sphere</p>
           <button onClick={() => router.push("/")}>Home</button>
-          <button onClick={() => router.push("/")}>What we provide</button>
-          <button onClick={() => router.push("/")}>About the devs</button>
+          <Link href="#what-we-provide">What we provide</Link>
+          <Link href="#about">About the devs</Link>
           <button onClick={() => router.push("/admin")}>Admin Sign in</button>
         </Menu>
     </div>
